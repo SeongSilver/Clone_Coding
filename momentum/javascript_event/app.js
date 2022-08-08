@@ -57,6 +57,7 @@ document.body.style.backgroundColor="beige";
 
 //============classList.toggle("원하는 클래스이름") : 해당 html 태그에 classList에 원하는 클래스 이름이 있다면 제거하고 클래스 이름이 없다면 추가해주는 기능
 //============스위치, 버튼의 역할
+//============If force is not given, "toggles" token, removing it if it's present and adding it if it's not present.
 function clickToggle(){
     h1.classList.toggle("clicked");
 }
