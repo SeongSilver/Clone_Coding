@@ -1,0 +1,16 @@
+#quote{
+    margin-top:50px;
+    margin: 0 auto;
+    text-align:center;
+    color:rgba(0,0,0,50%);
+    white-space:2px;
+}
+
+#quote span:first-child{
+    margin-top:20px;
+    font-size:1.5em;
+}
+#quote span:last-child{
+    margin-top:20px;
+    font-size:1.2em;
+}
