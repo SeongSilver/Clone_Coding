@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="css/clock.css">
     <link rel="stylesheet" href="css/quotes.css">
     <link rel="stylesheet" href="css/toDo.css">
+    <link rel="stylesheet" href="css/backgroundImage.css">
+    <link rel="stylesheet" href="css/weather.css">
     <title>LOGIN</title>
 </head>
 <body>
+    <div id="weather">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="loginsection">
         <h2 id="clock"></h2>
         <form id="login-form" class="hidden">
@@ -23,15 +31,15 @@
         <ul id="todo-list"></ul>
         <h1 id="greeting" class="hidden"></h1>
         <input id="logout" class="hidden" type="button" value="로그아웃">
-        <div id="quote">
-            <span></span><br/>
-            <span></span>
-        </div>
+    </div>
+    <div id="quote">
+        <span></span><br/>
+        <span></span>
     </div>
     <script src="js/loginApp.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/quotes.js"></script>
-    <!-- <script src="js/background.js"></script> -->
+    <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
 </body>

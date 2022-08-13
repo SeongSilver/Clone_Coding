@@ -10,9 +10,13 @@ function onGeoOk(position){
     .then(response => response
         .json()).then((data) => {
             const weather = document.querySelector("#weather span:first-child");
-            const city = document.querySelector("#weather span:last-child");
+            const temp = document.querySelector("#weather span:nth-child(2)");
+            const city = document.querySelector("#weather span:nth-child(3)");
+            const country = document.querySelector("#weather span:last-child");
             weather.innerText = data.weather[0].main;
-            city.innerText = data.name;
+            temp.innerText = `/ ${data.main.temp}℃`;
+            city.innerText = ` / ${data.name}`;
+            country.innerText = data.sys.country;
         });;
 }
 function onGeoError(){
@@ -24,3 +28,13 @@ function onGeoError(){
 //브라우저에서 위치 좌표를 가져옴
 //getCurrentPosition(실행이 잘됬을 때 실행될 함수, 에러가 생길 때 실행될 함수)은 2개의 매개변수를 가짐
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+// {"coord":{"lon":127.2897,"lat":37.6571},
+// "weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],
+// "base":"stations",
+// "main":{"temp":23.72,"feels_like":24.68,"temp_min":22.94,"temp_max":24.75,"pressure":1007,"humidity":97,"sea_level":1007,"grnd_level":992},
+// "visibility":10000,
+// "wind":{"speed":0.66,"deg":134,"gust":0.76},
+// "clouds":{"all":87},"dt":1660399707,
+// "sys":{"type":1,"id":5509,"country":"KR","sunrise":1660337065,"sunset":1660386442},
+// "timezone":32400,"id":1897118,"name":"Hwado","cod":200}

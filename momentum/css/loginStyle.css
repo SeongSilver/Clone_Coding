@@ -5,46 +5,52 @@
     font-style: normal;
 }
 body{
-    height:100vh;
     background-color:#ddd;
     margin:0 auto;
     padding:0;
     font-family: 'Happiness-Sans-Title';
+    list-style-type:none !important;
 }
 .loginsection{
-    width:50%;
-    height:30%;
+    width:60%;
+    height:800px;
     border-radius:20px;
-    box-shadow: 0 0 10px gray;
     margin:0 auto;
     text-align:center;
     margin-top:10vw;
-    background-color:rgba(255,255,255, 40%);
 }
 #login-form{
-    padding-top:7vw;
+    padding-top:5vw;
     padding-bottom:3vw;
 }
-.loginBox, #todo-form{
+.loginBox{
     background-color:transparent;
     border:none;
-    border-bottom:1px solid rgba(0,0,0,50%);
-    width:40%;
+    border-bottom:1px solid white;
+    color:white;
+    width:20%;
     height:25px;
     text-align:center;
     margin-right:1vw;
     font-size:1.2em;
-    font-weight:800;
+    font-weight:900;
+    outline:none;
+
 }
-#login-form>button, .loginsection>input{
+.loginBox::placeholder, #todo-form input::placeholder{
+    color:white;
+    font-size:1.3em;
+}
+#login-form>button{
     width:20%;
-    height:30px;
+    height:40px;
     border-radius:10px;
     border:none;
-    box-shadow:0 0 10px gray;
-    font-weight:800;
-    color:rgba(0,0,0,60%);
-    background-color:rgba(185, 241, 255, 30%);
+    box-shadow:0 0 5px gray;
+    font-weight:900;
+    font-size:1.2em;
+    background-color:rgba(255,255,255, 30%);
+    color:rgba(0,0,0,0.6);
 
 }
 

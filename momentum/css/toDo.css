@@ -1,13 +1,25 @@
-#todo-form{
-    margin:15px auto;
-    width:20vw;
-    border-bottom:1px solid rgba(0,0,0,0.3);
-}
+
 
 #todo-form input{
-    border:transparent;
+    background-color:transparent;
     border:none;
+    border-bottom:1px solid white;
+    color:white;
+    width:40%;
+    height:25px;
+    text-align:center;
+    margin-right:1vw;
+    font-size:1.2em;
+    font-weight:600;
+    outline:none;
 }
 #todo-form input:focus{
     outline:none;
+}
+
+#todo-list li{
+    list-style-type: none;
+    color:white;
+    margin-top:15px;
+    font-size:1.2em;
 }
