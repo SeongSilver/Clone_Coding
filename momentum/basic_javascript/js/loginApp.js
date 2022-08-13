@@ -59,7 +59,7 @@ const savedUsername = localStorage.getItem(USERNAME_KEY);
 //     setBtn.setAttribute("type", "button");
 //     setBtn.setAttribute("class", "logoutBtn");
 //     setBtn.setAttribute("value", "로그아웃");
-
+    
 //     greeting.appendChild(setBtn);
 // }
 function clickLogout(event){
