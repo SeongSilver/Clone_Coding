@@ -4,9 +4,16 @@ function onGeoOk(position){
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
     // console.log(`당신이 살고있는 위도는 ${lat}이고 경도는 ${lng}입니다.`);
-    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`;
     // console.log(URL);
-    fetch(URL);
+    fetch(URL)
+    .then(response => response
+        .json()).then((data) => {
+            const weather = document.querySelector("#weather span:first-child");
+            const city = document.querySelector("#weather span:last-child");
+            weather.innerText = data.weather[0].main;
+            city.innerText = data.name;
+        });;
 }
 function onGeoError(){
     alert("위치를 찾을 수 없어서 날씨를 표시할 수 없습니다.");
