@@ -16,14 +16,7 @@ function saveToDos(){
 //deleteToDo에 들어온 매개변수의 부모노드를 찾아서 해당 부모노드를 삭제하는 기능
 function deleteToDo(event){
     const li = event.target.parentElement;
-    //toDos 배열에서 toDos.filter를 사용하면 원래 배열을 수정하지 않고 새로운 배열을 만들지만
-    //원래 배열을 선언한 변수에 filter를 넣어줌으로 써 새로 업데이트 시켜주고
-    //해당 id(millisecond)값을 가진 li는 삭제해 주고 toDos를 다시 localSt1orage에 넣어준다.
-    //filter안에 들어간 매개변수 toDo를 사용해 toDo의 아이디 값과 string인 li.id를 Int로 변환해 준 후
-    //두 값이 다른 요소들만 filter로 toDos에 다시 저장해주는 기능을 한다
-    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
     li.remove();
-    saveToDos();
 }
 
 //li안에 span, button 태그를 만들고 button태그에 휴지통 이모지를 추가한후 버튼에 삭제를 위한 deleteToDo 메서드 이벤트를 추가
@@ -73,3 +66,10 @@ if(savedToDos !== null){
     // parsedToDos.forEach((item) => console.log(`할일! ${item}`));
     parsedToDos.forEach(paintToDo);
 }
+
+//Arrays.filter() 메서드는 원하는 배열의 요소들을 뽑아서 새로운 배열을 만든다
+function sexyFilter(){
+    
+}
+
+[1,2,3,4].filter(sexyFilter)
