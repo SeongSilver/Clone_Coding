@@ -188,3 +188,68 @@ canvas.addEventListener("click", onCanvasClick);
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
+
+
+//★★★★★★★★★★★★★3.0 Adding Image
+const fileInput = document.querySelector("#file");
+
+function onFileChange(event){
+    //input 태그에서 업로드된 파일의 정보를 가져와서 변수 file에 넣고
+    const file = event.target.files[0];
+    //createObjURL()을 통해 브라우저의 메모리에 저장된 해당 파일을 가리키는 URL을 요청해서 접근
+    const url = URL.createObjectURL(file);
+    //이미지를 만들기 위해 이미지 객체를 만들고 객체 소스에 url을 입력
+    //const image = document.createElement("img")와 같은기능
+    const image = new Image();
+    image.src = url;
+    //image.addEventListener("load", 실행할 함수)와 같은 기능
+    image.onload = function(){
+        //ctx 콘택스트에 이미지를 넣는다(이미지 객체, 시작 x좌표, 시작 y좌표, 사진 너비, 사진 높이)
+        ctx.drawImage(image, 0, 100, 800, 600);
+        //이미지를 그릴 때 file input을 비우기
+        fileInput.value = null;
+    }
+}
+
+fileInput.addEventListener("change", onFileChange);
+
+
+//★★★★★★★★★★★★★ 3.1 Adding Text
+const textInput = document.querySelector("#text");
+//선의 끝을 각지지 않고 둥글게
+ctx.lineCap = "round";
+
+let font1 = new FontFace('font1', 'url(https://cdn.jsdelivr.net/gh/ projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2)');
+
+font1.load();
+
+function onDoubleClick(event){
+    //ctx.save()는 ctx의 현재 상태, 색상, 스타일 등 모든 것을 저장
+    const text = textInput.value;
+    if(text !== ""){
+        ctx.save();
+        //이후에 것들은 기존 style에 영향을 주지 않음
+        ctx.lineWidth = 1;
+        ctx.font = "bold 48px font1" ;
+        ctx.fillText(text, event.offsetX, event.offsetY);
+        //save()와 restore()사이에서는 어떤 수정을해도 저장되지 않음. 이전에 저장된 상태의 style로 돌아감
+        ctx.restore();
+    }
+}
+
+canvas.addEventListener("dblclick", onDoubleClick)
+
+
+//★★★★★★★★★★★★★ 3.2 Saving Image
+const saveBtn = document.querySelector("#saveBtn");
+
+function onSaveClick(){
+    //canvas.toDataURL() : 캔버스전체의 이미지 데이터를 url로 인코딩해주는 메서드
+    const url = canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDrawing.png";
+    a.click();
+}
+
+saveBtn.addEventListener("click", onSaveClick);
