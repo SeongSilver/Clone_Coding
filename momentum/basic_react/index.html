@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html>
-<body></body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 <script>
-    
+    const root = document.getElementById("root");
+    const span = React.createElement("h3", {
+        onMouseEnter:()=>console.log("mouseEnter@@@")
+    },"Hello I'm a span");
+    const btn = React.createElement("button",{ 
+        onClick:()=>console.log("Clicked!!!!!!")
+    }, "Click me!");
+    const container = React.createElement("div",  null, [span, btn]);
+    ReactDOM.render(container, root);
 </script>
 </html>
+<!-- 
+바닐라 JS에서는 HTML을 먼저 만들고, 그걸 JavaScript로 가져와서
+HTML을 수정하는 식이면 React JS에서는 모든 것이 Javascript로 시작해서 HTML이 된다
+이것이 React JS의 핵심.
+
+Javascript와 React JS를 사용하여 element를 생성할 때에는 React JS가 element를 생성
+이 말은, React JS는 업데이트가 필요한 element를 업데이트할 것이라는 말
+바로 React JS가 결과물인 html을 업데이트 할 수 있다는 것
+
+React JS는 유저에게 보여질 내용을 컨트롤 할 수 있다는 뜻
+-->
