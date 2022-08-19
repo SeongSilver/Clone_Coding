@@ -7,90 +7,26 @@
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-    // const root = document.getElementById("root");
-    // const span = React.createElement("h3", {
-    //     onMouseEnter:()=>console.log("mouseEnter@@@")
-    // },"Hello I'm a span");
-    // const btn = React.createElement("button",{ 
-    //     onClick:()=>console.log("Clicked!!!!!!")
-    // }, "Click me!");
-    // const container = React.createElement("div",  null, [Title, Button]);
-    // function Title(){
-    //     return (
-    //         <h3 id="title" onMouseEnter={()=>console.log("mouseEnter@@@")}>
-    //             Hello I'm a span
-    //         </h3>
-    //         );
-    //     }
-    // const Button = () =>  (
-    //         <button 
-    //             style={{
-    //                 backgroundColor:"tomato",
-    //             }} 
-    //             onClick={()=>console.log("Clicked!!!!!!")}
-    //             >
-    //                 Click me!
-    //             </button>
-    //         );
-    // const Container =( <div>
-    //         <Title/>
-    //         <Button/>
-    //     </div>
-    // );
-    // ReactDOM.render(Container, root);
-    // function Title(){
-    //     return (
-    //         <h3 id="title" onMouseEnter={()=>console.log("mouseEnter@@@")}>
-    //             Hello I'm a span
-    //         </h3>
-    //         );
-    //     }
-    // const Button = () =>  (
-    //         <button 
-    //             style={{
-    //                 backgroundColor:"tomato",
-    //             }} 
-    //             onClick={()=>console.log("Clicked!!!!!!")}
-    //             >
-    //                 Click me!
-    //             </button>
-            // );
+  
 
-
-    // const root = document.getElementById("root");
-    // let counter = 0;
-    // function countUp(){
-    //     counter = counter +1;
-    //     render();
-    // }
-    // function render(){
-    //     ReactDOM.render(<App/>, root);
-    // }
-    // function App(){
-    //     return (
-    //     <div>
-    //             <h3>Total clicks: {counter}</h3>
-    //             <button onClick={countUp}>Click me</button>
-    //         </div>
-    //     );
-    // }
-    // render();
-
-
-    const root = document.getElementById("root");
     function App(){
-        //useState(초기값, 값을 변경하는 함수);
-        const [counter, setCounter] = React.useState(0);
-        function onClick(){
-            setCounter(counter+1);    
+        const [minutes, setMinutes] = React.useState();        
+        const onChange = (event) =>{
+            //console에 event를 띄우면 SyntheticBaseEvent라는 Rejact JS에서 띄우는 가짜 이벤트를 발생시켜서 EVENT를 최적화 시킨다
+            setMinutes(event.target.value);
         }
         return (
             <div>
-                <h3>Total clicks: {counter}</h3>
-                <button onClick={onClick}>Click me</button>
+                <h1>Super Converter</h1>
+                <label for="minutes">Minutes</label>
+                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
+                <h4>You want to convert {minutes}</h4>
+                <label for="hours">Hours</label>
+                <input id="hours" placeholder="Hours" type="number"/>
             </div>
         );
     }
+    const root = document.getElementById("root");
     ReactDOM.render(<App/>, root);
 </script>
 </html>
