@@ -7,27 +7,27 @@
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-  
+    function Btn(props){
+        console.log(props);
+        return <button style={{
+            backgroundColor:"RoyalBlue",
+            color:"white",
+            padding:"10px 20px",
+            border:0,
+            borderRadius:"10px",
+        }}>{props.banana}</button>;
+    }
 
     function App(){
-        const [minutes, setMinutes] = React.useState(0);        
-        const onChange = (event) =>{
-            //console에 event를 띄우면 SyntheticBaseEvent라는 Rejact JS에서 띄우는 가짜 이벤트를 발생시켜서 EVENT를 최적화 시킨다
-            setMinutes(event.target.value);
-        };
-        const reset = () =>{setMinutes(0);}
         return (
             <div>
-                <h1>Super Converter</h1>
-                <div>
-                    <label for="minutes">Minutes</label>
-                    <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
-                </div>
-                <div>
-                    <label for="hours">Hours</label>
-                    <input value={Math.round(minutes/60)} id="hours" placeholder="Hours" type="number"/>
-                </div>
-                <button onClick={reset}>RESET</button>
+                {/*부모 컴포넌트에서 JSX 태그 안에 사용된 속성을 
+                해당 컴포넌트에서 매개변수로 받아 매개변수.부모컴포넌트에서 사용햔 이름
+                의 값으로 사용할 수 있다. banana="" 로 사용했으면 매개변수.banana로 사용해서
+                같은 기능을 하는 컴포넌트를 여러개 만들 때는 그때마다 값을 다르게해서
+                재사용 가능하다.*/}
+                <Btn banana="save" x={false}/>
+                <Btn banana="Confirm" y={7}/>
             </div>
         );
     }
@@ -35,14 +35,3 @@
     ReactDOM.render(<App/>, root);
 </script>
 </html>
-<!-- 
-바닐라 JS에서는 HTML을 먼저 만들고, 그걸 JavaScript로 가져와서
-HTML을 수정하는 식이면 React JS에서는 모든 것이 Javascript로 시작해서 HTML이 된다
-이것이 React JS의 핵심.
-
-Javascript와 React JS를 사용하여 element를 생성할 때에는 React JS가 element를 생성
-이 말은, React JS는 업데이트가 필요한 element를 업데이트할 것이라는 말
-바로 React JS가 결과물인 html을 업데이트 할 수 있다는 것
-
-React JS는 유저에게 보여질 내용을 컨트롤 할 수 있다는 뜻
--->
