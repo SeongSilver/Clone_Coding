@@ -80,6 +80,7 @@ getHen()
 .then(meal => console.log(meal));
 
 //위 콜백함수를 전달할 떄 받아오는 value를 닿은 함수로 바로 하나를 호출하는 경우에는 아래와 같이 가능하다
+//이 프로미스에서 발생하는 에러를 잡고 싶을때는 바로 다음에 .catch()를 작성하면 바로 문제를 해결할 수 있다.
 getHen()
 .then(getEgg)
 .catch(error => {
@@ -88,3 +89,5 @@ getHen()
 .then(cook)
 .then(console.log)
 .catch(console.log);
+
+//############ 5. 

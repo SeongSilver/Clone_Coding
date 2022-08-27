@@ -64,8 +64,8 @@ userStorage.loginUser(
         userWidhRole => {
             alert(`hello ${userWidhRole.name}, you have a ${userWidhRole.role} role`);
         },
-    error => {
-        console.log(error);
-    });
+        error => {
+            console.log(error);
+        });
     }, 
     error => { console.log(error) });
