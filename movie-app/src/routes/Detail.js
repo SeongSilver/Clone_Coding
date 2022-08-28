@@ -21,17 +21,17 @@ function Detail(){
         <div>
             {loading ? (<h1>Loading....</h1>) : (
                 <div className="moviePoster">
-                    <div>
-                        <h3>{movie.title}(movie.year) 평점 : {movie.rating}</h3>
+                    <div className="largeSection1">
+                        <h2>{movie.title}(movie.year) 평점 : {movie.rating}</h2>
                         <img src={movie.medium_cover_image} />
                     </div>
-                    <div>
+                    <div className="largeSection2">
                         <div>
                             장르 : {movie.genres.map((genres, index)=>(
                                 <span key={index}>{genres} / </span>
                             ))}
                         </div>
-                        {movie.description_intro}
+                        <h4>{movie.description_full}</h4>
                     </div>
                 </div>
             )}

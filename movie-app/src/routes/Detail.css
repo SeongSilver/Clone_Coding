@@ -11,5 +11,17 @@
 }
 .moviePoster div{
     width:50%;
+    margin-top:50px;
     padding:30px;
+}
+.moviePoster div:first-child img{
+    margin-top:50px;
+    width:60%;
+}
+
+.largeSection1{
+    border-right:1px solid rgba(0,0,0,0.2);
+}
+.largeSection2{
+    border-left:1px solid rgba(0,0,0,0.2);
 }

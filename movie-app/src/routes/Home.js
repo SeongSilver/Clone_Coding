@@ -33,7 +33,7 @@ function Home(){
     margin:"50px auto",
     padding:"30px",
     textAlign:"center",
-    width:"40%",
+    width:"30%",
     backgroundColor:"rgba(30,30,30,0.6)",
     color:"white",
     }
