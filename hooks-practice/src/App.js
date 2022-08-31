@@ -1,32 +1,17 @@
-import { useState } from "react";
+import React, {useState, useEffect} from "react";
+import ReactDOM from "react-dom";
 
-const useInput = (initialValue, validator) => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = (event) => {
-    const {
-      target: { value }
-    } = event;
-    let willUpdate = true;
-    if (typeof validator === "function") {
-      willUpdate = validator(value);
-    }
-    if (willUpdate) {
-      setValue(value);
-      console.log(value);
-    }
-  };
-  return { value, onChange };
-};
+const App = () => {
+  const [number, setNumber] = useState(0);
+    const [aNumber, setAnumber] = useState(0);
 
-function App() {
-  const maxLen = (value) => value.includes("@");
-  const name = useInput("Mr.", maxLen);
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-      <input placeholder="name" {...name} />
-    </div>
-  );
+    return (
+        <div className="App">
+          <div>Hi</div>
+            <button onClick={()=>setNumber(number+1)}>{number}</button>
+            <button onClick={()=>setAnumber(number-1)}>{aNumber}</button>
+        </div>
+    )
 }
 
 export default App;
