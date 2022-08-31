@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
+import UseTitle from './useTitle';
 
-const App = () => {
-  const [number, setNumber] = useState(0);
-    const [aNumber, setAnumber] = useState(0);
-
-    return (
-        <div className="App">
-          <div>Hi</div>
-            <button onClick={()=>setNumber(number+1)}>{number}</button>
-            <button onClick={()=>setAnumber(number-1)}>{aNumber}</button>
-        </div>
-    )
+const App = () =>{
+  return(
+    <div className="App">
+      <h3>얘는 App 컴포넌트</h3>
+      <div>Hi</div>
+      <UseTitle/>
+    </div>
+  )
 }
 
 export default App;
