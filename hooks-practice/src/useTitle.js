@@ -10,7 +10,7 @@ const useTitles = (initialTitle) => {
     useEffect(updateTitle, [title]);
     return setTitle;
 }
-
+ 
 const useTitle = () =>{
     const titleUpdater = useTitles("Loading...");
     setTimeout(()=>titleUpdater("home"), 3000);

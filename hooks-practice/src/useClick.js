@@ -2,6 +2,9 @@ import React, {useState, useEffect, useRef} from 'react';
 import ReactDOM from 'react-dom';
 
 const useClicks = (onClick) => {
+    if(typeof onClick !== function){
+        return;
+    }
     const element = useRef();
     useEffect(()=>{
         if(element.current){
@@ -28,6 +31,10 @@ potato라는 변수로 해당 input태그를 사용할 수 있다.
     //     console.log(potato.current.focus());
     // }, 3000);
     const sayHello = () => console.log("say hello");
+    {/*useClicks()를 사용해서 useRef()를 만들었고 위 useClicks에서 같은 reference(element)를 return해줬다
+    그리고 주어진 reference를 title 변수에 넣어줬다(이제 상호작용 할 수 있음)
+    useEffect에서 할 일은 reference안에 element.current가 있는지 if문으로 확인하는 것이다
+    element.current가 있다면 click이벤트를 부여하는 것이다*/}
     const title = useClicks(sayHello);
     return(
         <div>
