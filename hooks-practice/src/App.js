@@ -6,6 +6,7 @@ import UseFadeIn from './useFadeIn';
 import UseNetwork from './useNetwork';
 import UseScroll from './useScroll';
 import UseFullScreen from './useFullScreen';
+import UseNotification from './useNotification';
 
 const App = () =>{
   return(
@@ -17,7 +18,8 @@ const App = () =>{
       <UseFadeIn/>
       <UseNetwork/> */}
       {/* <UseScroll/> */}
-      <UseFullScreen/>
+      {/* <UseFullScreen/> */}
+      <UseNotification/>
     </div>
   )
 }
