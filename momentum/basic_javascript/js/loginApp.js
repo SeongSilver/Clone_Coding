@@ -65,6 +65,7 @@ const savedUsername = localStorage.getItem(USERNAME_KEY);
 function clickLogout(event){
     window.localStorage.removeItem(USERNAME_KEY);
     window.location.reload();
+    console.log(event);
 }
 
 logout.addEventListener("click", clickLogout);

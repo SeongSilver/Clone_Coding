@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Vanilla Challenge</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="day7.css" />
+    </head>
+
+    <body>
+        <h1>Random Number Game</h1>
+        <div>
+            <!-- <form> -->
+                <span class="question">
+                Generate a number between 0 and
+                <input required id="questionNum" type="number" />
+            </span>
+            <br />
+            <span>
+                Guess the number:
+                <input required id="answerNum" type="number"/>
+                <button class="answerBtn">Play!</button>
+            </span>
+            <!-- </form> -->
+        </div>
+        <div class="result hidden">
+            <p id="p1"></p>
+            <p id="p2"></p>
+        </div>
+        <script src="day7.js"></script>
+    </body>
+</html>
