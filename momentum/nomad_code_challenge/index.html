@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--7일차 코드 챌린지-->
+    <h1>※ 7일차 코드챌린지</h1>
+    <div>
+        <!-- <h1>Random Number Game</h1>
+        <div>
+            <span class="question">
+                Generate a number between 0 and
+                <input required id="questionNum" type="number" />
+            </span>
+            <br />
+            <span>
+                Guess the number:
+                <input required id="answerNum" type="number" />
+                <button class="answerBtn">Play!</button>
+            </span>
+        </div> -->
+        
+        <div class="result hidden">
+            <p id="p1"></p>
+            <strong id="p2"></strong>
+        </div>
+        <h1>Random Number Game</h1>
+        <div>
+            <h3 class="js-title">
+                Generate a number between 0 and <input id="maxNumber" type="number" />
+            </h3>
+        </div>
+        <form id="js-guess">
+            <label>Guess the number:</label>
+            <input type="number" max="200" min="5" />
+            <button>Play!</button>
+        </form>
+        <div id="js-result">
+            <span></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <!--8일차 코드 챌린지-->
+    <h1>※ 8일차 코드 챌린지 Date()쓰는법</h1>
+    <h3>크리스마스까지 남은시간</h3>
+    <h3 class="js-clock"></h3>
+    <script src="resize.js"></script>
+    <script src="game_challenge.js"></script>
+    <script src="clock_challenge.js"></script>
+</body>
+
+</html>
