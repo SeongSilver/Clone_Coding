@@ -1,0 +1,11 @@
+.quote{
+    background-color:cornflowerblue;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.author{
+    background-color:cornflowerblue;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left:3px dashed rgba(0,0,0,0.3);
+}

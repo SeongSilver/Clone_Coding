@@ -1,0 +1,6 @@
+.weather{
+    background-color:cornflowerblue;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-left:3px dashed rgba(0,0,0,0.3);
+}
