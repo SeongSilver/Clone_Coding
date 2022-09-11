@@ -17,6 +17,8 @@ function saveToDos(){
 function deleteToDo(event){
     const li = event.target.parentElement;
     li.remove();
+    toDos = toDos.filter((toDo)=>toDo.id!==parseInt(li.id));
+    saveToDos();
 }
 
 //li안에 span, button 태그를 만들고 button태그에 휴지통 이모지를 추가한후 버튼에 삭제를 위한 deleteToDo 메서드 이벤트를 추가
@@ -27,6 +29,7 @@ function paintToDo(newToDo){
     const span = document.createElement("span");
     span.innerText = `🌏. ${newToDo.text}`;
     const button = document.createElement("button");
+    button.classList.add('deleteBtn');
     button.innerText = ` 🗑`;
     button.addEventListener("click", deleteToDo )
     li.appendChild(span);

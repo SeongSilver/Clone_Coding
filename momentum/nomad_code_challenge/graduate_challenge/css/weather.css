@@ -4,5 +4,10 @@
     border-top-right-radius: 15px;
     border-left:3px dashed rgba(0,0,0,0.3);
     color:white;
-    font-size:1.5em;
+    font-size:1.2em;
+}
+    
+.weatherContainer{
+    height:50%;
+    padding-top:37px;
 }
