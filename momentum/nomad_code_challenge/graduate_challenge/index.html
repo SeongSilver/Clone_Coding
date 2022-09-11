@@ -21,8 +21,11 @@
             <div class="clock">
                 <h1 class="clock"></h1>
             </div>
-            <div class="randomBg item">
-                <p>배경이미지</p>
+            <div class="todo">
+                <form id="todo-form">
+                    <input type="text" placeholder="여행갈 때 필요한 것은?" required />
+                </form>
+                <ul id="todo-list"></ul>
             </div>
             <div class="quote">
                 여행명언
@@ -32,7 +35,7 @@
             <div class="weather">
                 <h1>맑다니~</h1>
             </div>
-            <div class="login item">
+            <div class="login">
                 <ul class="loginList">
                     <li>
                         <span class="liContent"><label for="">FLIGHT ID</label>&emsp;</span>
@@ -42,7 +45,9 @@
                         <span class="liContent"><label for="">FLIGHT PW</label>&emsp;</span>
                         <span class="liContent"><input type="password" /></span>
                     </li>
-                    <li><buttons class="loginBtn">로그인</button></li>
+                    <li>
+                        <buttons class="loginBtn">로그인</button>
+                    </li>
                 </ul>
             </div>
             <div class="author">
@@ -53,7 +58,7 @@
     <script src="js/clock.js"></script>
     <script src="js/login.js"></script>
     <script src="js/randomBg.js"></script>
-    <script src="js/todoList.js"></script>
+    <script src="js/quote.js"></script>
     <script src="js/weather.js"></script>
 </body>
 

@@ -28,13 +28,15 @@ section:last-child{
     height:10vh;
 }
 /*=====둘째줄(사진, 로그인)======*/
-.randomBg{
+.todo{
     width:100%;
     height:40vh;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 .login{
     width:100%;
     height:40vh;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 /*=====셋째줄(여행 명언)======*/
 .quote{
