@@ -1,9 +1,9 @@
-import MapChart from './MapChart';
+import Clock from './main/clock';
 
 function App() {
   return (
     <div className="App">
-      <MapChart/>
+      <Clock/>
     </div>
   );
 }
