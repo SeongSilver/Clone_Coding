@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import moment from 'moment';
+
+const nowTime = moment().format('YYYY-MM-DD HH:mm:ss');
+//https://haranglog.tistory.com/10 모멘트사용하기
 
 // const clocks = document.querySelector('#cd');
 
@@ -13,7 +17,7 @@ import React, {useState, useEffect} from 'react';
     // getClock();
     // setInterval(getClock, 1000);
     
-    const clock = () => {
+    const Clock = () => {
         const [time, setTime] = useState(new Date());
         
         useEffect(()=>{
@@ -22,12 +26,13 @@ import React, {useState, useEffect} from 'react';
             },1000);
             return (()=>clearInterval(id))
         }, []);
+
     return(
         <>
             <h1 id="clockText">Clock</h1>
-            <span>{time.toLocaleDateString()}</span>
+            <span>{time.toLocaleTimeString()}</span>
         </>
     )
 }
 
-export default clock;
+export default Clock;
