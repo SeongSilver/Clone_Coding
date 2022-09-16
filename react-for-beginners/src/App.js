@@ -1,6 +1,7 @@
-import Expense from "./components/Expense";
+import React from 'react';
+import Expense from "./components/Expense/Expense";
 
-function App() {
+const App = () => {
     const expenses = [
         {
             id: 'e1',
@@ -26,6 +27,15 @@ function App() {
             date: new Date(2021, 5, 12),
         },
     ];
+    
+    // //원래 리액트의 형식
+    // return React.createElement(
+    //     'div',
+    //     {},
+    //     React.createElement('h2', {}, "legacy React"),
+    //     React.createElement(Expense, {items:expenses})
+    // );
+
     return (
         <div>
             <h2>Let's get started!</h2>
