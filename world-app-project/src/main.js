@@ -1,6 +1,6 @@
 import react from 'react';
 
-const clocks = document.querySelector('#clockText');
+    const clocks = document.querySelector('#clockText');
 
     function getClock() {
         const date = new Date();

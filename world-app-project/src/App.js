@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Clock from './main/clock'
+import Clock from './main/Clock'
 
 function App() {
   return (
