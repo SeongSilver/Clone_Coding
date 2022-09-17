@@ -1,5 +1,7 @@
 import React from 'react';
 import Expense from "./components/Expense/Expense";
+import NewExpense from './components/NewExpense/NewExpense';
+import ExpenseFilter from './components/ExpenseFilter/ExpenseFilter';
 
 const App = () => {
     const expenses = [
@@ -28,6 +30,11 @@ const App = () => {
         },
     ];
     
+    const addExnepseHandler = (expense) => {
+        console.log('In App.js');
+        console.log(expense);
+    }
+
     // //원래 리액트의 형식
     // return React.createElement(
     //     'div',
@@ -38,8 +45,9 @@ const App = () => {
 
     return (
         <div>
-            <h2>Let's get started!</h2>
+            <NewExpense onAddExpense={addExnepseHandler} />
             <Expense items={expenses}/>
+            <ExpenseFilter/>
         </div>
     );
 }
