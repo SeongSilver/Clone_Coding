@@ -2,10 +2,12 @@ import React from 'react';
 import ExpenseItem from "./ExpenseItem.js";
 import Card from "../UI/Card.js";
 import './Expense.css';
+import ExpenseFilter from '../ExpensesFilter/ExpenseFilter.js';
 
 const Expense = (props) => {
     return (
         <Card className="expenses">
+            <ExpenseFilter/>
             <ExpenseItem
                 id={props.items[0].id}
                 title={props.items[0].title}
