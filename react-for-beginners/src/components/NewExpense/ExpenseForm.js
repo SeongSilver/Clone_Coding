@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './ExpenseForm.css'
 
 const ExpenseForm = (props) => {
@@ -14,7 +14,7 @@ const ExpenseForm = (props) => {
     // })
 
 
-    const titleChangeHandler = (event)=>{
+    const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
         // setUserInput({
         //     /*리액트에서 새로운 값이 업데이트될 때 해당 useState의 나머지 값들을 
@@ -28,7 +28,7 @@ const ExpenseForm = (props) => {
         //     return {...prevState, enteredTitle:event.target.value};
         // })
     }
-    const amountChangeHandler = (event)=>{
+    const amountChangeHandler = (event) => {
         setEnteredAmount(event.target.value);
 
         // setUserInput({
@@ -40,7 +40,7 @@ const ExpenseForm = (props) => {
         //     return {...prevState, enteredAmount:event.target.value};
         // })
     }
-    const dateChangeHandler = (event)=>{
+    const dateChangeHandler = (event) => {
         setenteredDate(event.target.value);
 
         // setUserInput({
@@ -57,9 +57,9 @@ const ExpenseForm = (props) => {
         event.preventDefault();
 
         const expensedData = {
-            title:enteredTitle,
-            amout:enteredAmount,
-            date:new Date(enteredDate)
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
         }
 
         props.onSaveExpenseData(expensedData);
@@ -72,7 +72,7 @@ const ExpenseForm = (props) => {
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type="text" value={enteredTitle} onChange={titleChangeHandler}/>
+                    <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
@@ -80,7 +80,7 @@ const ExpenseForm = (props) => {
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type="date" value={enteredDate} min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler}/>
+                    <input type="date" value={enteredDate} min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler} />
                 </div>
             </div>
             <div className='new-expense_-actions'>
