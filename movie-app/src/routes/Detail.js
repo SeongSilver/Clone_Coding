@@ -1,19 +1,19 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './Detail.css';
 
-function Detail(){
+function Detail() {
     const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState([]);
-    const {id} = useParams();
-    const getMovie = async ()=>{
+    const { id } = useParams();
+    const getMovie = async () => {
         const json = await (
-            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-            ).json();
-            setMovie(json.data.movie);
-            setLoading(false);
+            await fetch(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101`)
+        ).json();
+        setMovie(json.data.movie);
+        setLoading(false);
     };
-    useEffect(()=>{
+    useEffect(() => {
         getMovie();
     }, [])
     console.log(movie);
@@ -27,7 +27,7 @@ function Detail(){
                     </div>
                     <div className="largeSection2">
                         <div>
-                            장르 : {movie.genres.map((genres, index)=>(
+                            장르 : {movie.genres.map((genres, index) => (
                                 <span key={index}>{genres} / </span>
                             ))}
                         </div>
@@ -36,7 +36,7 @@ function Detail(){
                 </div>
             )}
         </div>
-    
+
     );
 }
 
