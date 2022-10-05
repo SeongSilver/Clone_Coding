@@ -1,46 +1,31 @@
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Movie({coverImg, title, summary, genres, year, rating, id}){
-    const poster = {
-        border:"none",
-        borderRadius:"20px",
-        boxShadow:"0 0 20px rgba(0,0,0,0.3)",
-        margin:"50px auto",
-        padding:"30px",
-        textAlign:"center",
-        width:"40%",
-        backgroundColor:"rgba(30,30,30,0.6)",
-        color:"white",
-    }
+
+function Movie({ id, key, title, original_title, poster_path }) {
+
+    const image_url = `https://image.tmdb.org/t/p/w400/`;
 
     return (
-        <div style={poster}>
-            <h2>
-                <Link to={`/movie/${id}`}>{title}({year})</Link> / 평점 : {rating}
-            </h2>
-            <hr/>
-            <img src={coverImg} alt={title}/>
-            <hr/>
-            <ul>
-                {genres.map((genres)=>(
-                    <li key="genres">{genres}</li>
-                ))}
-            </ul>
-            <p>{summary}</p>
-        </div>
+        <div key={key} className="movieCard">
+            <div className="card">
+                <Link to={`/movie/${id}`}><img src={image_url + poster_path} /></Link>
+                <h3>{title}({original_title})</h3>
+            </div>
+            {/* <div>
+                    <span>개봉일 : </span>
+                    <span>{movie.realease_date}</span>
+                </div>
+                <div>
+                    <span>줄거리 : </span>
+                    <span>{movie.overview} 원</span>
+                </div> */
+            }
+        </div >
     )
 }
 
-Movie.propTypes = {
-    id: PropTypes.number.isRequired,
-    coverImg: PropTypes.string.isRequired,
-    title:PropTypes.string.isRequired,
-    summary:PropTypes.string.isRequired,
-    year:PropTypes.number.isRequired,
-    rating:PropTypes.number.isRequired,
-    genres:PropTypes.arrayOf(PropTypes.string).isRequired
-}
+
 
 
 export default Movie;
