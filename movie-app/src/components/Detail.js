@@ -1,21 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 function Detail() {
     const params = useParams();
+    const [movie, setMovie] = useState([]);
     console.log(params);
-    const base_url = `https://api.themoviedb.org/3/trending/movie/week?api_key=d101009eea7bbd17187b8445611478bc&language=ko-KR&append_to_response=videos,images&sort_by=popularity.desc&id=${params.id}`
+    const image_url = `https://image.tmdb.org/t/p/w400/`;
+
     const getMovie = async () => {
         const json = await (
-            await fetch(base_url)
+            await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=d101009eea7bbd17187b8445611478bc&language=ko-KR`)
         ).json();
-        console.log(json + "ddd");
+        setMovie(json);
     }
     useEffect(() => {
         getMovie();
     }, [])
+    console.log(movie)
     return (
-        <div>Detail</div>
+        <div>
+            <div>
+                <h2>{movie.title}({movie.original_title})</h2>
+                <img src={image_url + movie.poster_path} />
+                {movie.belongs_to_collection ? (
+                    <img src={image_url + movie.belongs_to_collection.poster_path} />) : null}
+                <h3>{movie.overview}</h3>
+                <h3>{movie.release_date}</h3>
+            </div>
+
+        </div>
     )
 }
 

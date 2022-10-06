@@ -7,7 +7,10 @@ import Movie from '../components/Movie';
 
 function Main() {
     const [movies, setMovies] = useState([]);
-
+    const [isVisible, setIsVisible] = useState(false);
+    const onSetVisible = (active) => {
+        setIsVisible(true);
+    }
     const base_url = `https://api.themoviedb.org/3/trending/movie/week?api_key=d101009eea7bbd17187b8445611478bc&language=ko-KR&append_to_response=videos,images&sort_by=popularity.desc`
 
 
@@ -55,6 +58,7 @@ function Main() {
                         title={movie.title}
                         original_title={movie.original_title}
                         poster_path={movie.poster_path}
+                        genres={movie.genres}
                     />
                     ))}
                 </Slider>
