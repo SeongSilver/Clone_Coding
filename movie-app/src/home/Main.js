@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import '../style.css';
+import '../components/CSS/Main.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Movie from '../components/Movie';
 
 function Main() {
     const [movies, setMovies] = useState([]);
-    const [isVisible, setIsVisible] = useState(false);
-    const onSetVisible = (active) => {
-        setIsVisible(true);
-    }
+    // const [isVisible, setIsVisible] = useState(false);
+    // const onSetVisible = (active) => {
+    //     setIsVisible(true);
+    // }
     const base_url = `https://api.themoviedb.org/3/trending/movie/week?api_key=d101009eea7bbd17187b8445611478bc&language=ko-KR&append_to_response=videos,images&sort_by=popularity.desc`
 
 
@@ -43,12 +43,12 @@ function Main() {
         slidesToScroll: 3 //한번에 넘어가는 컨텐츠 개수
     };
 
+    const confirmEvent = (event) =>{
+        console.dir(event.target);
+    }
+
     return (
-        // < Routes >
-        //   <Route path="/movies" component={<Detail />} />
-        //   <Route path="/" component={<Home />} />
-        // </Routes >
-        <div>
+        <div onClick={confirmEvent}>
             <div className="movieContainer">
                 <Slider {...settings}>
                     {movies.map((movie) =>
@@ -63,11 +63,7 @@ function Main() {
                     ))}
                 </Slider>
             </div >
-
-
-
         </div >
-
     )
 }
 

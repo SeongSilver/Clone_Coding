@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import './CSS/Detail.css';
 
 function Detail() {
     const params = useParams();
+    const navigate = useNavigate();
     const [movie, setMovie] = useState([]);
-    console.log(params);
+    // console.log(params);
     const image_url = `https://image.tmdb.org/t/p/w400/`;
 
     const getMovie = async () => {
@@ -13,17 +15,24 @@ function Detail() {
         ).json();
         setMovie(json);
     }
+
+    const backSite = () => {
+        navigate(-1);
+    }
     useEffect(() => {
         getMovie();
     }, [])
-    console.log(movie)
+    // console.log(movie)
     return (
         <div>
+            <div onClick={backSite}>
+                <img src="./back.png"  alt="뒤로"/>
+            </div>
             <div>
                 <h2>{movie.title}({movie.original_title})</h2>
-                <img src={image_url + movie.poster_path} />
+                <img className="movie_poster"src={image_url + movie.poster_path} alt=""/>
                 {movie.belongs_to_collection ? (
-                    <img src={image_url + movie.belongs_to_collection.poster_path} />) : null}
+                    <img src={image_url + movie.belongs_to_collection.poster_path} alt=""/>) : null}
                 <h3>{movie.overview}</h3>
                 <h3>{movie.release_date}</h3>
             </div>

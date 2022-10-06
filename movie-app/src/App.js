@@ -5,10 +5,12 @@ import Detail from './components/Detail';
 
 function App() {
   return (
-    <Routes>
-      <Route path={"/"} element={<Main />} />
-      <Route path={"/movie/:id"} element={<Detail />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path={"/"} element={<Main />} />
+        <Route path={"/movie/:id"} element={<Detail />} />
+      </Routes>
+    </>
   )
 }
 

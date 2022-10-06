@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import './CSS/Movie.css';
 
 function Movie({ id, key, title, original_title, poster_path, genres }) {
 
@@ -9,7 +9,7 @@ function Movie({ id, key, title, original_title, poster_path, genres }) {
     return (
         <div key={key} className="movieCard">
             <div className="card">
-                <Link to={`/movie/${id}`}><img src={image_url + poster_path} /></Link>
+                <Link to={`/movie/${id}`}><img className="movie_poster" src={image_url + poster_path} alt="no image"/></Link>
                 <h3>{title}({original_title})</h3>
             </div>
         </div >
