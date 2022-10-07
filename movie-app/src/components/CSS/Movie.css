@@ -1,6 +1,13 @@
 .movie_card{
     margin-right:30px;
+    text-align:center;
 }
 .movie_poster{
+    margin-left:5vw;
     box-shadow: 5px 5px 10px rgba(255,255,255,0.3);
+    border: 3px solid none;
+    border-radius: 20px;
+}
+.movie_title{
+    text-align:center;
 }

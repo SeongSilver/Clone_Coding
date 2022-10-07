@@ -8,8 +8,8 @@ import Header from './Header';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-    <Header/>
     <BrowserRouter>
+    <Header/>
         <App />
     </BrowserRouter>
     </>

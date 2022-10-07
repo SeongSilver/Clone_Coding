@@ -32,7 +32,7 @@ function Detail() {
                 <h2>{movie.title}({movie.original_title})</h2>
                 <img className="movie_poster"src={image_url + movie.poster_path} alt=""/>
                 {movie.belongs_to_collection ? (
-                    <img src={image_url + movie.belongs_to_collection.poster_path} alt=""/>) : null}
+                    <img src={image_url + movie.belongs_to_collection.poster_path} className="movie_poster" alt=""/>) : null}
                 <h3>{movie.overview}</h3>
                 <h3>{movie.release_date}</h3>
             </div>
