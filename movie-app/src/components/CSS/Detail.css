@@ -1,3 +1,25 @@
+.detailBox{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:3vw 5vw;
+}
+.detailBox div{
+    margin-left:3vw;
+}
+.detailBox div:first-child{
+    flex-grow: 0.2;
+}
+.detailBox div:nth-child(2){
+    flex-grow: 0.4;
+    
+}
+.detailBox div:last-child{
+    margin-left:5vw;
+    flex-grow: 0.4;
+    display:flex;
+    flex-direction: column;
+}
 .movie_poster{
     margin-left:5vw;
     box-shadow: 5px 5px 10px rgba(255,255,255,0.3);

@@ -43,7 +43,7 @@ function Main() {
         slidesToScroll: 3 //한번에 넘어가는 컨텐츠 개수
     };
 
-    const confirmEvent = (event) =>{
+    const confirmEvent = (event) => {
         console.dir(event.target);
     }
 
@@ -59,6 +59,7 @@ function Main() {
                         original_title={movie.original_title}
                         poster_path={movie.poster_path}
                         genres={movie.genres}
+                        realseDate={movie.release_date}
                     />
                     ))}
                 </Slider>

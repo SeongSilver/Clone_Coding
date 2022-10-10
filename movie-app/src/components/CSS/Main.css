@@ -14,7 +14,11 @@ body {
 
 .movieContainer{
     margin:0 auto;
-    margin-top:10vh;
+    margin-top:8vh;
+    height:70px;
+}
+.slick-slider{
+    height:680px;
 }
 
 
