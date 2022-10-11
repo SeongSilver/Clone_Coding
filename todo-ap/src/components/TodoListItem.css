@@ -19,12 +19,12 @@
     margin-left:0.5rem;
     flex:1;
 }
-.TodoListItem .checkbox svg:checked{
-    color:#22b3cf;
+.TodoListItem .checkbox.checked svg {
+    color: #22b8cf;
 }
-.TodoListItem .text:checked {
-    color:#adb5bd;
-    text-decoration:line-through;
+.TodoListItem .checkbox.checked .text {
+    color: #adb5bd;
+    text-decoration: line-through;
 }
 
 .TodoListItem .remove{
