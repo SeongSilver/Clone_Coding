@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { WiDayCloudy, WiDaySunny, WiDayRain, WiDaySnow } from 'react-icons/wi'
+import './Weather.css';
 
 function Weather() {
     const [weather, setWeather] = useState(null);
@@ -7,9 +8,9 @@ function Weather() {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
             let lng = position.coords.longitude;
-            setTimeout(
-                getWeatherCurrentLocation(lat, lng), 2000
-            )
+
+            getWeatherCurrentLocation(lat, lng);
+
         })
     }
     const getWeatherCurrentLocation = async (lat, lng) => {
@@ -27,9 +28,14 @@ function Weather() {
     }, [])
     return (
         <div className='weather'>
-            <div>
-                {weather.name}
-            </div>
+            <div className='weatherTitle'>MOMENTUM</div>
+            {
+                weather !== null && (
+                    <div className='weatherText'>
+                        {weather.name}. {weather.sys.country}&emsp;/&emsp;{weather.weather[0].main}&emsp;/&emsp;{weather.main.temp}℃
+                    </div>
+                )
+            }
         </div>
     )
 }
