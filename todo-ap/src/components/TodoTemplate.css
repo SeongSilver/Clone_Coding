@@ -9,15 +9,15 @@
 }
 
 .app-title{
-    background:rgba(34,179,297,0.4);
+    background:rgba(133, 219, 138,0.5);
     color:white;
     height:4rem;
     font-size:1.5rem;
     display:flex;
     align-items: center;
     justify-content:center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 .content{
     height:auto;

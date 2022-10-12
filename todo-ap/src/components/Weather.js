@@ -20,7 +20,6 @@ function Weather() {
         // const [location, setLocation] = useState("");
         let response = await fetch(URL)
         let data = await response.json();
-        console.log(data);
         setWeather(data);
     }
     useEffect(() => {
@@ -28,7 +27,7 @@ function Weather() {
     }, [])
     return (
         <div className='weather'>
-            <div className='weatherTitle'>MOMENTUM</div>
+            <div className='weatherTitle'>SEONGE SILVER'S MOMENTUM</div>
             {
                 weather !== null && (
                     <div className='weatherText'>
