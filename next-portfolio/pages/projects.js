@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
-import { TOKEN, DATABASE_ID } from '../config/index'
+import { TOKEN, DATABASE_ID } from '../config/index.js'
 
 export default function Projects() {
     return (
@@ -17,6 +17,7 @@ export default function Projects() {
 
 //빌드 타임에 호출
 export async function getStaticProps() {
+
     const options = {
         method: 'POST',
         headers: {
@@ -28,8 +29,14 @@ export async function getStaticProps() {
         body: JSON.stringify({ page_size: 100 })
     };
 
-    const res = fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
+    const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options);
+    const projects = await res.json();
 
+    const projectIds = projects.results.map((aProject) => (
+        aProject.properties.Name.title[0].plain_text
+    ))
+
+    console.log(`projectIds : ${projectIds}`);
 
     return {
         props: {}, // will be passed to the page component as props
