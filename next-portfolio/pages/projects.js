@@ -44,7 +44,7 @@ export async function getStaticProps() {
             sorts: [
                 {
                     "property": "Work Period",
-                    "direction": "descending",
+                    "direction": "ascending",
                 }
             ],
             page_size: 100
