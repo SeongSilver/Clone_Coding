@@ -1,9 +1,10 @@
 import React from 'react'
+import SassComponent from './react-book/9-css-scss/SassComponent.js'
 
-const App = () => {
+function App() {
     return (
-        <div>
-
+        <div className="App">
+            <SassComponent />
         </div>
     )
 }
