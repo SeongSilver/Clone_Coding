@@ -1,10 +1,10 @@
 import React from 'react'
-import SassComponent from './react-book/9-css-scss/SassComponent.js'
+import StyledComponents from './react-book/9-css-scss/StyledComponents.js'
 
 function App() {
     return (
         <div className="App">
-            <SassComponent />
+            <StyledComponents />
         </div>
     )
 }
