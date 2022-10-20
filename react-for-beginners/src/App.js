@@ -1,10 +1,10 @@
 import React from 'react'
-import StyledComponents from './react-book/9-css-scss/StyledComponents.js'
+import Main from './react-book/14-newsViewer/Main'
 
 function App() {
     return (
         <div className="App">
-            <StyledComponents />
+            <Main />
         </div>
     )
 }
