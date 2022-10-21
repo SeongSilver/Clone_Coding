@@ -1,10 +1,9 @@
 import React from 'react'
-import Main from './react-book/14-newsViewer/Main'
-
+import AppNews from './react-book/14-newsViewer/components/AppNews'
 function App() {
     return (
         <div className="App">
-            <Main />
+            <AppNews />
         </div>
     )
 }
