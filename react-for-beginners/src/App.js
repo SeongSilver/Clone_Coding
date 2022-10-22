@@ -1,10 +1,16 @@
 import React from 'react'
-import AppNews from './react-book/14-newsViewer/components/AppNews'
+import ColorBox from './react-book/15-ContextAPI/components/ColorBox'
+import SelectColor from './react-book/15-ContextAPI/components/SelectColor'
+import { ColorProvider } from './react-book/15-ContextAPI/context/color'
+
 function App() {
     return (
-        <div className="App">
-            <AppNews />
-        </div>
+        <ColorProvider>
+            <div className="App">
+                <SelectColor />
+                <ColorBox />
+            </div>
+        </ColorProvider>
     )
 }
 
