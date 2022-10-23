@@ -1,16 +1,14 @@
 import React from 'react'
-import ColorBox from './react-book/15-ContextAPI/components/ColorBox'
-import SelectColor from './react-book/15-ContextAPI/components/SelectColor'
-import { ColorProvider } from './react-book/15-ContextAPI/context/color'
+import CounterContainer from './react-book/17-react-redux/containers/CounterContainer'
+import Todos from './react-book/17-react-redux/Todos'
 
 function App() {
     return (
-        <ColorProvider>
-            <div className="App">
-                <SelectColor />
-                <ColorBox />
-            </div>
-        </ColorProvider>
+        <div>
+            <CounterContainer />
+            <hr />
+            <Todos />
+        </div>
     )
 }
 
