@@ -19,13 +19,13 @@ export default connect(
         number: state.counter.number,
     }),
     //connect의 두번째 파라미터로 객체를 넣어주면 내부족으로 bindActionCreator 작업을 대신해준다
-    {
-        increase,
-        decrease
-    },
+    // {
+    //     increase,
+    //     decrease
+    // },
     //위 객체는 원래 아래와 같은 모양
-    // dispatch => ({
-    //     increase: () => dispatch(increase()),
-    //     decrease: () => dispatch(decrease())
-    // })
+    dispatch => ({
+        increase: () => dispatch(increase()),
+        decrease: () => dispatch(decrease())
+    })
 )(CounterContainer);

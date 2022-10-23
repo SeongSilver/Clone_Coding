@@ -27,4 +27,10 @@ export default connect(
         toggle,
         remove,
     }
+    // dispatch => ({
+    //     changeInput: () => dispatch(changeInput()),
+    //     insert: () => dispatch(insert()),
+    //     toggle: () => dispatch(toggle()),
+    //     remove: () => dispatch(remove())
+    // })
 )(TodosContainer)
