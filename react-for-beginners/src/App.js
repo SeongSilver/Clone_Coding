@@ -1,13 +1,13 @@
 import React from 'react'
 import CounterContainer from './react-book/17-react-redux/containers/CounterContainer'
-import Todos from './react-book/17-react-redux/Todos'
+import TodosContainer from './react-book/17-react-redux/containers/TodosContainer'
 
 function App() {
     return (
         <div>
             <CounterContainer />
             <hr />
-            <Todos />
+            <TodosContainer />
         </div>
     )
 }
