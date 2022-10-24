@@ -16,10 +16,7 @@ export const decrease = createAction(DECREASE);
 
 
 //모듈의 초기 상태
-const initialState = {
-    number: 0
-}
-
+const initialState = 0;
 // function counter(state = initialState, actions) {
 //     switch (actions.type) {
 //         case INCREASE:

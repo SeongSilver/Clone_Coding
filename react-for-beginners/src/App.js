@@ -1,13 +1,11 @@
 import React from 'react'
-import CounterContainer from './react-book/17-react-redux/containers/CounterContainer'
-import TodosContainer from './react-book/17-react-redux/containers/TodosContainer'
+import SampleContainer from './react-book/18-learn-redux-middleware/containers/SampleContainer'
 
 function App() {
     return (
         <div>
-            <CounterContainer />
+            <SampleContainer />
             <hr />
-            <TodosContainer />
         </div>
     )
 }

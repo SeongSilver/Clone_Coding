@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css'
-import { createStore } from 'redux';
-import rootReducer from './react-book/17-react-redux/modules/rootReducer';
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from './react-book/18-learn-redux-middleware/modules/rootReducer';
 import { Provider } from 'react-redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, devToolsEnhancer());
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
