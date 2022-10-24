@@ -1,10 +1,10 @@
 import React from 'react'
-import SampleContainer from './react-book/18-learn-redux-middleware/containers/SampleContainer'
+import CounterContainer from './react-book/18-learn-redux-middleware/containers/CounterContainer'
 
 function App() {
     return (
         <div>
-            <SampleContainer />
+            <CounterContainer />
         </div>
     )
 }
