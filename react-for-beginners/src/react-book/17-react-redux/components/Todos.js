@@ -1,4 +1,5 @@
 const TodoItem = ({ todo, onToggle, onRemove }) => {
+    console.log(todo);
     return (
         <div>
             <input
@@ -15,12 +16,19 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
     );
 };
 
-const Todos = ({ input, todos, onChangeInput, onInsert, onToggle, onRemove }) => {
+const Todos = ({
+    input, // 인풋에 입력되는 텍스트
+    todos, // 할 일 목록이 들어있는 객체
+    onChangeInput,
+    onInsert,
+    onToggle,
+    onRemove,
+}) => {
     const onSubmit = e => {
         e.preventDefault();
         onInsert(input);
-        onChangeInput('');
-    }
+        onChangeInput(''); // 등록 후 인풋 초기화
+    };
     const onChange = e => onChangeInput(e.target.value);
     return (
         <div>
@@ -30,11 +38,16 @@ const Todos = ({ input, todos, onChangeInput, onInsert, onToggle, onRemove }) =>
             </form>
             <div>
                 {todos.map(todo => (
-                    <TodoItem todo={todo} key={todo.id} onToggle={onToggle} onRemove={onRemove} />
+                    <TodoItem
+                        todo={todo}
+                        key={todo.id}
+                        onToggle={onToggle}
+                        onRemove={onRemove}
+                    />
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Todos;
