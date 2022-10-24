@@ -8,4 +8,4 @@ const Counter = ({ onIncrease, onDecrease, number }) => {
     )
 }
 
-export default Counter;
+export default Counter

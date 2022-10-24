@@ -5,7 +5,6 @@ function App() {
     return (
         <div>
             <SampleContainer />
-            <hr />
         </div>
     )
 }
