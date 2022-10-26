@@ -4,7 +4,7 @@ import loadable from '@loadable/component';
 import logo from './logo.svg';
 import './App.css';
 
-const SplitMe = loadable(() => import('./SplitMe'), {
+const SplitMe = loadable(() => import('../../../../splitting-sample/src/SplitMe'), {
   fallback: <div>Loading...</div>
 })
 function App() {

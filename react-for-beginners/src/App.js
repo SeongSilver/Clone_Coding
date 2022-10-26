@@ -1,12 +1,11 @@
-import React from 'react'
-import CounterContainer from './react-book/18-learn-redux-middleware/containers/CounterContainer'
+import Appssr from './react-book/20-ServerSideRendering/App_ssr';
 
-function App() {
+const App = () => {
     return (
-        <div>
-            <CounterContainer />
+        <div className="App">
+            <Appssr />
         </div>
     )
 }
 
-export default App
+export default App;
