@@ -1,11 +1,16 @@
 const paths = require('./paths');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+const nodeExternals = require('webpack-node-externals');
+const webpack = require('webpack');
+const getClientEnvironment = require('./env');
 const resolve = require('resolve');
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+
+const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
 module.exports = {
     mode: 'production', //프로덕션 모드로 설정하여 최적화 옵션들을 활성화
@@ -134,5 +139,13 @@ module.exports = {
     //라이브러리를 불러오면 빌드할 때 결과물 파일 안에 해당 라이브러리 관련 코드가 함께 번들링된다
     resolve: {
         modules: ['node_modules']
-    }
+    },
+    externals: [
+        nodeExternals({
+            allowlist: [/@babel/],
+        })
+    ],
+    plugins: [
+        new webpack.DefinePlugin(env.stringified), //환겨변수 주입
+    ]
 }
