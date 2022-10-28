@@ -29,3 +29,11 @@ export const Preloader = ({ resolve }) => {
  * 다시 렌더링하면 데이터가 채워진 상태로 컴포넌트들이 나타난다
  * 
  */
+
+//Hook 형태로 사용할 수 있는 함수
+export const usePreloader = resolve => {
+    const preloadContext = useContext(PreloadContext);
+    if (!preloadContext) return null;
+    if (preloadContext.done) return null;
+    preloadContext.promises.push(Promise.resolve(resolve()));
+}
