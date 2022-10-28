@@ -10,12 +10,15 @@ export default PreloadContext;
 //서버 환경에서만 resolve 함수를 호출해 준다
 export const Preloader = ({ resolve }) => {
     const preloadContext = useContext(PreloadContext);
+    //클라이언트에서 실행을 막도록 하는 코드
     if (!preloadContext) return null; //context값이 유효하지 않다면 아무것도 하지않음
     if (preloadContext.done) return null; //이미 작업이 끝났다면 아무것도 하지않음
 
     //promises 배열에 프로미스 등록
-    //resolve 함수가 프로미스를 반환하지 않더라도, 프로미스 취급을 하깅 ㅟ해
+    //resolve 함수가 프로미스를 반환하지 않더라도, 프로미스 취급을 하기 위해
     //Promise.resolve 함수 사용
+    //사전적재 컨텍스트가 미완료라면
+    //주어진 resolve()반환 값으로 then문을 실행할 수 있는 Promise객체를 생성해 PreloadContext promises에 쌓기
     preloadContext.promises.push(Promise.resolve(resolve()));
     return null;
 }

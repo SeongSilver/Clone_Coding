@@ -7,8 +7,11 @@ import fs from 'fs';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import rootReducer from './modules/rootReducer';
+import rootReducer, { rootSaga } from './modules/rootReducer';
 import PreloadContext from './lib/PreloadContext';
+import createSagaMiddleware from 'redux-saga';
+import { END } from 'redux-saga';
+
 
 //build 폴더 안의 asset-manifest.json 에서 파일 경로들을 조회한다
 const manifest = JSON.parse(
@@ -42,7 +45,12 @@ const app = express();
 const serverRender = async (req, res, next) => {
     //이 함수는 404가 떠야 하는 상황에 404를 띄우지 않고 서버 사이드 렌더링을 해줌
     const context = {};
-    const store = createStore(rootReducer, applyMiddleware(thunk));
+    const sagaMiddleware = createSagaMiddleware();
+    const store = createStore(rootReducer, applyMiddleware(thunk, sagaMiddleware));
+    //toPromise는 sagaMiddleware.run 을 통해 만든 Task를 Promise로 변환한다
+    //별도의 작업을 하지 않으면 루트사가에서 액션을 끝없이 모니터링하기 때문에 Promise가 끝나지 않기 때문에 
+    //redux-saga의 END라는 액션을 발생시켜야 promise를 끝낼 수 있다.
+    const sagaPromise = sagaMiddleware.run(rootSaga).toPromise();
     const preloadContext = {
         done: false,
         promises: []
@@ -62,7 +70,12 @@ const serverRender = async (req, res, next) => {
     //이함수로 만든 리액트 렌더링 결과물은 클라이언트쪽이서 HTML DOM 인터렉션 지원힘듬
     //renderToStaticMarkup을 사용한 이유는 Preloader로 넣어주었떤 함수를 호출하기 위해서, 처리속도가 보다 빠르기 떄문
     ReactDOMServer.renderToStaticMarkup(jsx); //renderToStaticMarkup으로 한번 렌더링
+    //END액션이 발생되면 액션 모니터링 작업이 모두 종료되고, 모니터링 되기 전에 시작된 getUserSaga 같은
+    //사가 함수들이 있다면 해당 함수들이 완료되고나서 Promise가 끝나게 된다
+    //이 Promise가 긑나는 시점에 리덕스 스토어에는 우리가 원하는 데이터가 채워지고 렌더링하면 결과물이 나온다
+    store.dispatch(END); //redux-saga의 END 액션을 발생시키면 액션을 모니터링하는 사가들이 모두 종료된다.
     try {
+        await sagaPromise; //기존에 진행 중이던 사가들이 모두 끝날때까지 기다린다
         await Promise.all(preloadContext.promises); //모든 프로미스 기다림
     } catch (error) {
         return res.status(500);
