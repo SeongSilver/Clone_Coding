@@ -4,11 +4,22 @@ import Joi from 'joi';
 
 const { ObjectId } = mongoose.Types;
 
-export const checkObjectId = (ctx, next) => {
+export const getPostById = async (ctx, next) => {
     const { id } = ctx.params;
     if (!ObjectId.isValid(id)) {
         ctx.status = 400; //Bad Request
         return;
+    }
+    try {
+        const post = await Post.findById(id);
+        if (!post) {
+            ctx.status = 404;
+            return;
+        }
+        ctx.state.post = post;
+        return next();
+    } catch (error) {
+        ctx.throw(500, e);
     }
     return next();
 }
@@ -33,6 +44,7 @@ export const write = async ctx => {
         title,
         body,
         tags,
+        user: ctx.state.user,
     });
     try {
         await post.save();
@@ -41,7 +53,9 @@ export const write = async ctx => {
         ctx.throw(500, e);
     }
 };
-
+/*
+    GET /api/posts?username=&tag=&page=
+ */
 export const list = async ctx => {
     //query는 문자열이기 때문에 숫자로 변환
     //값이 주어지지 않았다면 1을 기본으로 사용
@@ -51,10 +65,18 @@ export const list = async ctx => {
         ctx.status = 400;
         return;
     }
+
+    const { tag, username } = ctx.query;
+    //tag, username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
+    const query = {
+        ...(username ? { 'user.username': username } : {}),
+        ...(tag ? { tags: tag } : {}),
+    };
+
     try {
         //find함수 뒤에 exec()를 붙여주어야 서버에 쿼리를 요쳥한다
-        const posts = await Post.find().sort({ _id: -1 }).limit(10).skip((page - 1) * 10).exec();
-        const pageCount = await Post.countDocuments().exec();
+        const posts = await Post.find(query).sort({ _id: -1 }).limit(10).skip((page - 1) * 10).exec();
+        const pageCount = await Post.countDocuments(query).exec();
         ctx.set('Last-Page', Math.ceil(pageCount / 10));
         ctx.body = posts
             .map(post => post.toJSON())
@@ -68,17 +90,7 @@ export const list = async ctx => {
 };
 
 export const read = async ctx => {
-    const { id } = ctx.params;
-    try {
-        const post = await Post.findById(id).exec();
-        if (!post) {
-            ctx.status = 404;
-            return;
-        }
-        ctx.body = post;
-    } catch (e) {
-        ctx.throw(500, e);
-    }
+    ctx.body = ctx.state.post;
 };
 
 export const remove = async ctx => {
@@ -90,6 +102,15 @@ export const remove = async ctx => {
         ctx.throw(500, e);
     }
 };
+
+export const checkOwnPost = (ctx, next) => {
+    const { user, post } = ctx.state;
+    if (post.user._id.toString() !== user._id) {
+        ctx.status = 403;
+        return;
+    }
+    return next();
+}
 
 export const update = async ctx => {
     const { id } = ctx.params;
