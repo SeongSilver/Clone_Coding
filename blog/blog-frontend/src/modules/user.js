@@ -22,16 +22,16 @@ function checkFailureSaga(){
     }
 }
 
-function* logoutSaga(){
-    try{
-        yield call(authAPI.logout);
-        localStorage.removeItem('user');
-    }catch(e){
+function* logoutSaga() {
+    try {
+      yield call(authAPI.logout); // logout API 호출
+      localStorage.removeItem('user'); // localStorage 에서 user 제거
+    } catch (e) {
         console.log(e);
     }
 }
 
-export function* userSaga(){
+export function* userSaga() {
     yield takeLatest(CHECK, checkSaga);
     yield takeLatest(CHECK_FAILURE, checkFailureSaga);
     yield takeLatest(LOGOUT, logoutSaga);
@@ -44,24 +44,24 @@ const initialState = {
 
 export default handleActions(
     {
-        [TEMP_SET_USER]:(state, {payload:user}) => ({
+        [TEMP_SET_USER]: (state, { payload: user }) => ({
             ...state,
             user,
         }),
-        [CHECK_SUCCESS]:(state, {payload:user}) => ({
+        [CHECK_SUCCESS]: (state, { payload: user }) => ({
             ...state,
             user,
-            checkError:null,
+            checkError: null,
         }),
-        [CHECK_FAILURE]:(state,{payload:error}) => ({
+        [CHECK_FAILURE]: (state, { payload: error }) => ({
             ...state,
-            user:null,
-            checkError:error,
+            user: null,
+            checkError: error,
         }),
-        [LOGOUT] : state => ({
+        [LOGOUT]: state => ({
             ...state,
-            user:null,
-        })
+            user: null,
+        }),
     },
     initialState,
 );
