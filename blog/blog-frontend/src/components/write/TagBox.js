@@ -13,6 +13,7 @@ const TagBoxBlock = styled.div`
     margin-bottom: 0.5rem;
   }
 `;
+
 const TagForm = styled.form`
   border-radius: 4px;
   overflow: hidden;
@@ -62,7 +63,7 @@ const TagListBlock = styled.div`
 const TagItem = React.memo(({ tag, onRemove }) => (
   <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
 ));
-//React.memo를 사용하여 tags값이 바뀔 때만 리렌더링되도록 처리
+//React.memo를 사용하여 tag s값이 바뀔 때만 리렌더링되도록 처리
 const TagList = React.memo(({ tags, onRemove }) => (
   <TagListBlock>
     {tags.map((tag) => (
@@ -81,14 +82,14 @@ const TagBox = () => {
       if (localTags.includes(tag)) return; //이미 존재한다면 추가하지 않음
       setLocalTags([...localTags, tag]);
     },
-    [localTags],
+    [localTags]
   );
 
   const onRemove = useCallback(
     (tag) => {
       setLocalTags(localTags.filter((t) => t !== tag));
     },
-    [localTags],
+    [localTags]
   );
 
   const onChange = useCallback((e) => {
@@ -98,11 +99,12 @@ const TagBox = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      insertTag(input.trim()); //앞 뒤 공백을 없앤후 등록
+      insertTag(input.trim());
       setInput('');
     },
-    [input, insertTag],
+    [input, insertTag]
   );
+
   return (
     <TagBoxBlock>
       <h4>태그</h4>
