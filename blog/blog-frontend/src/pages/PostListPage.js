@@ -1,13 +1,14 @@
-import React from 'react'
-import HeaderContainer from '../components/common/HeaderContainer'
+import React from 'react';
+import HeaderContainer from '../components/common/HeaderContainer';
+import PostList from '../components/posts/PostList';
 
 function PostListPage() {
-    return (
-        <>
-            <HeaderContainer/>
-            <div>안녕하세요.</div>
-        </>
-    )
+  return (
+    <>
+      <HeaderContainer />
+      <PostList />
+    </>
+  );
 }
 
-export default PostListPage
+export default PostListPage;
