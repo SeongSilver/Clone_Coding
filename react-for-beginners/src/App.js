@@ -1,10 +1,10 @@
+import React from 'react'
+import ReduxPractice from './redux-practice/Redux-practice'
 
-const App = () => {
-    return (
-        <div className="App">
-            ㅎㅇ
-        </div>
-    )
+function App() {
+  return (
+    <ReduxPractice/>
+  )
 }
 
-export default App;
+export default App
