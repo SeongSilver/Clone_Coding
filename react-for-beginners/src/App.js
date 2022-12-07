@@ -1,10 +1,8 @@
+import React from "react";
+import useEffectApp from "./udemy_clone/useEffect/App";
 
 const App = () => {
-    return (
-        <div className="App">
-            ㅎㅇ
-        </div>
-    )
-}
+  return <useEffectApp />;
+};
 
 export default App;
