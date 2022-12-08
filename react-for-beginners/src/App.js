@@ -1,8 +1,12 @@
 import React from "react";
-import useEffectApp from "./udemy_clone/useEffect/App";
+import EffectTest from "./udemy_clone/useEffect/App";
 
 const App = () => {
-  return <useEffectApp />;
+  return (
+    <>
+      <EffectTest />
+    </>
+  );
 };
 
 export default App;
