@@ -1,10 +1,10 @@
 import React from "react";
-import EffectTest from "./udemy_clone/useEffect/App";
+import ReducerTest from "./udemy_clone/useReducer/App";
 
 const App = () => {
   return (
     <>
-      <EffectTest />
+      <ReducerTest />
     </>
   );
 };
