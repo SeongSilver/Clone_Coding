@@ -1,10 +1,10 @@
 import React from "react";
-import ReducerTest from "./udemy_clone/useReducer/App";
+import FoodOrder from "./udemy_clone/FoodOrderApp/App";
 
 const App = () => {
   return (
     <>
-      <ReducerTest />
+      <FoodOrder />
     </>
   );
 };
