@@ -1,10 +1,10 @@
 import React from "react";
-import HTTPRequest from "./udemy_clone/HTTPRequest/App";
+import FoodOrderApp from "./udemy_clone/FoodOrderApp/App";
 
 const App = () => {
   return (
     <>
-      <HTTPRequest />
+      <FoodOrderApp />
     </>
   );
 };
