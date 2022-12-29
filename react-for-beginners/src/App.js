@@ -1,10 +1,10 @@
 import React from "react";
-import FoodOrderApp from "./udemy_clone/FoodOrderApp/App";
+import Optimize from "./udemy_clone/Optimize/App";
 
 const App = () => {
   return (
     <>
-      <FoodOrderApp />
+      <Optimize />
     </>
   );
 };
