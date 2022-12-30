@@ -1,12 +1,13 @@
 import React from "react";
-import Optimize from "./udemy_clone/Optimize/App";
+import DetailForm from "./udemy_clone/DetailForm/App";
 
 const App = () => {
   return (
     <>
-      <Optimize />
+      <DetailForm />
     </>
   );
 };
 
 export default App;
+ 
