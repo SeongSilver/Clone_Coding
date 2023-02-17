@@ -1,10 +1,10 @@
 import React from "react";
-import Optimize from "./udemy_clone/Optimize/App";
+import Post from "./etc/Pagination/Post.js";
 
 const App = () => {
   return (
     <>
-      <Optimize />
+      <Post />
     </>
   );
 };
