@@ -1,10 +1,10 @@
 import React from "react";
-import Post from "./etc/Pagination/Post.js";
+import DetailForm from "./udemy_clone/DetailForm/App";
 
 const App = () => {
   return (
     <>
-      <Post />
+      <DetailForm />
     </>
   );
 };
