@@ -1,10 +1,10 @@
 import React from "react";
-import FilpGame from "./Flip-Game/FilpGame";
+import QRCodeReader from "./QRCodeReader/QRCodeReader";
 
 function App() {
   return (
     <div className="App">
-      <FilpGame />
+      <QRCodeReader />
     </div>
   );
 }
