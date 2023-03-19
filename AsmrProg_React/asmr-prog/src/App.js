@@ -1,10 +1,10 @@
 import React from "react";
-import QRCodeReader from "./QRCodeReader/QRCodeReader";
+import SpeechApp from "./SpeechApp/SpeechApp";
 
 function App() {
   return (
     <div className="App">
-      <QRCodeReader />
+      <SpeechApp />
     </div>
   );
 }
