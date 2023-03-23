@@ -9,6 +9,12 @@ const counterReducer = (state = { counter: 0 }, action) => {
       counter: state.counter + 1,
     };
   }
+  if (action.type === "decrement") {
+    return {
+      counter: state.counter - 1,
+    };
+  }
+  return state;
 };
 
 //스토어를 생성하고 리듀서 연결
@@ -31,4 +37,6 @@ store.subscribe(counterSubscriber);
 
 //dispatch : 액션을 발송하는 메서드, action은 자바스크립트 객체
 //새로운 액션을 발송 하면 리듀서 함수를 다시 실행시켜서 카운트가 증가함
+
 store.dispatch({ type: "increment" });
+store.dispatch({ type: "decrement" });
